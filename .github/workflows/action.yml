@@ -1,4 +1,3 @@
-#工作流名称
 name: Deploy WayEcho Github Actions
 
 # 定义环境变量
