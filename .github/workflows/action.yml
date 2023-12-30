@@ -26,11 +26,13 @@ jobs:
     # 使用ubuntu系统镜像运行自动化脚本
     runs-on: ubuntu-latest
     steps: 
-      - name: Test Deploy Path
-        run: echo "部署路径：${{env.DEPLOY_PATH}}"
+      # 下载代码仓库
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - run: echo "Git Checkout Success"
 
       # 同步文件到服务器
-      - name: Deploy to Server
+      - name: Sync Source Code to Server
         uses: appleboy/scp-action@v0.1.6
         with:
           host: ${{ secrets.HOST }}
@@ -40,8 +42,10 @@ jobs:
           source: "*"
           target: ${{env.DEPLOY_PATH}}
 
+      - run: echo "Sync Source Code Success"
+
       # 执行安装依赖 重启项目
-      - name: Execute Script 
+      - name: Deploy Project 
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -53,3 +57,5 @@ jobs:
             cd ${{env.DEPLOY_PATH}}
             composer install
             php start.php restart -d
+      
+      - run: echo "Deploy ${{env.APP_NAME}} Project Success"
