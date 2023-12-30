@@ -18,7 +18,7 @@ on:
   paths-ignore: 
       - README.md
       - LICENSE
-      -.gitignore
+      - ".gitignore"
 
 
 
@@ -55,7 +55,7 @@ jobs:
     steps: # 自动化步骤
 
       # 第一步，下载代码仓库
-      — name: Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
         run: echo "hello,Github Actions"
       
