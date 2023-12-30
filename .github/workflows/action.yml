@@ -4,7 +4,7 @@ name: Deploy APP SERVER Github Actions
 # 自定义的环境变量
 env:
   APP_NAME: WAY_ECHO
-  APP_PATH: "/way_echo/"
+  APP_PATH: "way_echo/"
   DEPLOY_PATH: "/home/work/$APP_PATH"
   # 使用的PHP版本 暂时未用到
   PHP_VERSION: "8.x"
