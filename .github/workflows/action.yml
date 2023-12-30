@@ -3,9 +3,9 @@ name: Deploy WayEcho Github Actions
 
 # 定义环境变量
 env:
-  APP_NAME: MY_WEBAPP_NAME   
+  APP_NAME: WAY_ECHO
   APP_PACKAGE_PATH: '.'
-  DEPLOY_PATH: '/home/work/'
+  DEPLOY_PATH: "/home/work/${APP_NAME}/"
   # 使用的PHP版本
   PHP_VERSION: '8.x' 
 
@@ -58,6 +58,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - run: echo "hello,Github Actions"
+      - run: echo $DEPLOY_PATH
       
       # 第二步，推文件到服务器
       - name: Deploy to Server 
@@ -68,7 +69,7 @@ jobs:
             password: ${{ secrets.PASSWORD }}
             port: ${{ secrets.PORT }}
             source: "*"
-            target: "/home/work/way_echo/"
+            target: ${DEPLOY_PATH}
       
       - name: Execute Script # 第三步，执行安装依赖
         uses: appleboy/ssh-action@master
@@ -79,6 +80,6 @@ jobs:
           port: ${{ secrets.PORT }}
           # 进入到项目目录，执行依赖更新 启动进程
           script: |
-            cd /home/work/way_echo/
+            cd DEPLOY_PATH
             composer install
             php start.php start -d
