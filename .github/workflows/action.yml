@@ -26,6 +26,8 @@ jobs:
     # 使用ubuntu系统镜像运行自动化脚本
     runs-on: ubuntu-latest
     steps: 
+      - name: Test Deploy Path
+        run: echo "部署路径：${{env.DEPLOY_PATH}}"
 
       # 同步文件到服务器
       - name: Deploy to Server
