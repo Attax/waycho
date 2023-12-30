@@ -4,30 +4,28 @@ name: Deploy WayEcho Github Actions
 # 定义环境变量
 env:
   APP_NAME: wayecho
-  APP_PACKAGE_PATH: '.'
+  APP_PACKAGE_PATH: "."
   DEPLOY_PATH: "/home/work/$APP_NAME/"
   # 使用的PHP版本
-  PHP_VERSION: '8.x' 
+  PHP_VERSION: "8.x"
 
 # 触发工作流的事件
 on:
   push:
-    branches: 
+    branches:
       - master # 只在master上push触发部署
-  # 下列文件的变更不触发部署
-    paths-ignore: 
-        - README.md
-        - LICENSE
-        - ".gitignore"
-
-
+    # 下列文件的变更不触发部署
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - ".gitignore"
 
 jobs:
   # job_id
   build:
     # 任务说明 build job
     name: build job
-    
+
     # runs-on字段指定运行所需要的虚拟机环境，必填字段
     # 使用ubuntu最新版系统镜像运行自动化脚本
     runs-on: ubuntu-latest
@@ -35,9 +33,9 @@ jobs:
     steps:
       # steps.name：步骤名称
       - name: Checkout Repository
-      # 该步骤运行的命令或者 action
+        # 该步骤运行的命令或者 action
         uses: actions/checkout@v3
-      
+
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.1
         with:
@@ -46,31 +44,30 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-             whoami
-             pwd
-             ls
+            whoami
+            pwd
+            ls
 
   deploy:
     runs-on: ubuntu-latest # 使用ubuntu系统镜像运行自动化脚本
     steps: # 自动化步骤
-
       # 第一步，下载代码仓库
       - name: Checkout Repository
         uses: actions/checkout@v3
       - run: echo "hello,Github Actions"
       - run: echo "$DEPLOY_PATH"
-      
+
       # 第二步，推文件到服务器
-      - name: Deploy to Server 
+      - name: Deploy to Server
         uses: appleboy/scp-action@v0.1.6
         with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            port: ${{ secrets.PORT }}
-            source: "*"
-            target: $DEPLOY_PATH
-      
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "*"
+          target: $DEPLOY_PATH
+
       - name: Execute Script # 第三步，执行安装依赖
         uses: appleboy/ssh-action@master
         with:
