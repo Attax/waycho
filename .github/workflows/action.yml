@@ -50,4 +50,4 @@ jobs:
           script: |
             cd ${{env.DEPLOY_PATH}}
             composer install
-            php start.php start -d
+            php start.php restart -d
