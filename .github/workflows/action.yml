@@ -81,4 +81,4 @@ jobs:
           script: |
             cd /home/work/way_echo/
             composer install
-            php start.php start
+            php start.php start -d
