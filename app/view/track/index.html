@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcel Tracking</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    /* Custom Styles */
+    #trackingForm {
+      display: flex;
+    }
+
+    #trackingForm textarea {
+      min-height: 100px; /* Set a minimum height for the textarea */
+    }
+
+    #trackingForm textarea::placeholder {
+      color: #A0AEC0; /* Set a placeholder color */
+    }
+
+    #trackingForm button {
+      margin-left: 8px; /* Add some space between textarea and button */
+    }
+
+    .tracking-card {
+      margin-bottom: 20px; /* Add margin between tracking cards */
+      position: relative;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .export-button,
+    .copy-button {
+      background-color: #4CAF50; /* Green background */
+      color: white; /* White text */
+      border: none; /* No border */
+      padding: 5px 10px; /* Some padding */
+      font-size: 14px; /* Set font size */
+      cursor: pointer; /* Cursor on hover */
+      border-radius: 4px; /* Rounded corners */
+      transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .export-button:hover,
+    .copy-button:hover {
+      background-color: #45a049; /* Dark green background on hover */
+    }
+
+    .copy-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url('copy-icon.png') center center no-repeat;
+      background-size: contain;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body class="bg-orange-100 font-sans">
+
+  <div class="container mx-auto p-8">
+    <!-- Tracking Form -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-orange-800 mb-4">Parcel Tracking</h1>
+      <form class="flex items-center" id="trackingForm">
+        <textarea placeholder="Enter tracking numbers (separated by commas)" class="py-2 px-4 border rounded-l mr-0 focus:outline-none focus:border-orange-500 resize-none min-h-full"></textarea>
+        <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-r focus:outline-none hover:bg-orange-600">Tracking</button>
+      </form>
+    </div>
+
+    <!-- Tracking Result -->
+    <div id="trackingResults">
+      <h2 class="text-2xl font-bold text-orange-800 mb-4">Tracking Result</h2>
+      <!-- Tracking Cards Container - Vertical -->
+      <div id="trackingCardsContainer">
+        <!-- Dummy Tracking Card 1 -->
+        <div class="bg-white p-6 rounded-md shadow-md tracking-card">
+          <p class="mb-2"><span class="font-semibold">Parcel ID:</span> ABC123456789</p>
+          <p class="mb-2"><span class="font-semibold">Status:</span> In Transit</p>
+          <p class="mb-2"><span class="font-semibold">Location:</span> Distribution Center</p>
+          <p class="mb-2"><span class="font-semibold">Estimated Delivery:</span> January 10, 2023</p>
+          <!-- Button Container -->
+          <div class="button-container">
+            <!-- Export Button -->
+            <button class="export-button">Export</button>
+            <!-- Copy Button -->
+            <button class="copy-button">
+              <span class="copy-icon"></span>Copy
+            </button>
+          </div>
+        </div>
+        <!-- Dummy Tracking Card 2 -->
+        <div class="bg-white p-6 rounded-md shadow-md tracking-card">
+          <p class="mb-2"><span class="font-semibold">Parcel ID:</span> XYZ987654321</p>
+          <p class="mb-2"><span class="font-semibold">Status:</span> Delivered</p>
+          <p class="mb-2"><span class="font-semibold">Location:</span> Customer's Address</p>
+          <p class="mb-2"><span class="font-semibold">Delivery Date:</span> December 20, 2022</p>
+          <!-- Button Container -->
+          <div class="button-container">
+            <!-- Export Button -->
+            <button class="export-button">Export</button>
+            <!-- Copy Button -->
+            <button class="copy-button">
+              <span class="copy-icon"></span>Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

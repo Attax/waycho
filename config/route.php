@@ -13,9 +13,30 @@
  */
 
 use Webman\Route;
+use app\controller\IndexController;
+use app\controller\TrackController;
+use app\controller\CarrierController;
+
+
+Route::get('/', [IndexController::class,'home']);
+
+
+// carriers
+Route::group('/carriers', function () {
+    Route::any('/create', function ($request) {return response('create');});
+    Route::any('/edit', function ($request) {return response('edit');});
+    Route::any('/view/{id}', function ($request, $id) {return response("view $id");});
+ });
 
 
 
+Route::get('/tracking',[TrackController::class,'index']);
 
+
+Route::group('/api', function () {
+    Route::any('/create', function ($request) {return response('create');});
+    Route::any('/edit', function ($request) {return response('edit');});
+    Route::any('/view/{id}', function ($request, $id) {return response("view $id");});
+ });
 
 

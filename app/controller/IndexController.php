@@ -15,9 +15,9 @@ class IndexController
         return $readme;
     }
 
-    public function view(Request $request)
+    public function home(Request $request)
     {
-        return view('index/view', ['name' => 'webman']);
+        return view('home/index', ['name' => 'webman']);
     }
 
     public function json(Request $request)

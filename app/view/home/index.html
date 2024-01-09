@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistics SaaS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    /* Custom Styles */
+    .bg-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg') center center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      align-items: center;
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+
+  <!-- Navigation Section -->
+<nav class="bg-gray-800 text-white py-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#" class="text-xl font-bold">WayEcho Logistics</a>
+
+    <!-- Navigation Links -->
+    <div class="space-x-4">
+      <a href="#product" class="hover:text-gray-300">Product</a>
+      <a href="#tracking" class="hover:text-gray-300">Tracking</a>
+      <a href="#login" class="hover:text-gray-300">Login</a>
+      <a href="#signup" class="btn-primary py-2 px-4 rounded-full hover:bg-green-600 transition">Signup</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section with Slogan and Query Form -->
+<section class="bg-hero text-white text-center">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Left Side (Slogan) -->
+    <div class="w-2/3">
+      <h1 class="text-4xl font-bold mb-4 text-shadow">Streamline Your Logistics Operations with WayEcho</h1>
+      <p class="text-lg mb-8 text-shadow">Efficient, Reliable, and Scalable Logistics Solutions</p>
+      <a href="#features" class="btn-primary py-2 px-6 rounded-full text-lg hover:bg-green-600 transition">Learn More</a>
+    </div>
+
+    <!-- Right Side (Query Form) -->
+    <div class="w-1/3 flex flex-col items-center">
+      <!-- Input for Tracking Number -->
+      <input type="text" placeholder="Enter Tracking Number" class="w-full py-2 px-4 border rounded mb-4">
+      
+      <!-- Button to Query Logistics Information -->
+      <button class="w-full btn-primary py-2 px-6 rounded hover:bg-green-600 transition">Track</button>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Key Features Section -->
+  <section id="features" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Key Features</h2>
+      <div class="flex flex-wrap justify-center gap-8">
+        <!-- Feature 1 -->
+        <div class="w-full md:w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Real-time Tracking</h3>
+          <p class="text-gray-700">Track your shipments in real-time, ensuring complete visibility across your supply chain.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="w-full md:w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Inventory Management</h3>
+          <p class="text-gray-700">Efficiently manage your inventory with our powerful inventory management tools.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="w-full md:w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Automated Reporting</h3>
+          <p class="text-gray-700">Generate detailed reports and analytics to optimize your logistics operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Wall Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Trusted by Leading Brands</h2>
+      <div class="flex items-center justify-center overflow-hidden">
+        <!-- Replace the following with your actual logos -->
+        <img src="logo1.png" alt="Logo 1" class="h-12 mx-4 opacity-75 hover:opacity-100 transition">
+        <img src="logo2.png" alt="Logo 2" class="h-12 mx-4 opacity-75 hover:opacity-100 transition">
+        <img src="logo3.png" alt="Logo 3" class="h-12 mx-4 opacity-75 hover:opacity-100 transition">
+        <!-- Add more logo images as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Ready to Optimize Your Logistics?</h2>
+      <p class="text-gray-700 mb-8">Join thousands of businesses benefiting from our logistics SaaS platform.</p>
+      <a href="#contact" class="btn-primary py-2 px-6 rounded-full text-lg hover:bg-green-600 transition">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Get In Touch</h2>
+      <p class="text-gray-700 mb-8">Have questions or ready to get started? Contact us today!</p>
+      <!-- Contact Form (You can replace this with your own contact form) -->
+      <form>
+        <div class="flex flex-wrap justify-center">
+          <div class="w-full md:w-1/2 px-4 mb-4">
+            <input type="text" placeholder="Your Name" class="w-full py-2 px-4 border rounded">
+          </div>
+          <div class="w-full md:w-1/2 px-4 mb-4">
+            <input type="email" placeholder="Your Email" class="w-full py-2 px-4 border rounded">
+          </div>
+          <div class="w-full px-4 mb-4">
+            <textarea placeholder="Your Message" class="w-full py-2 px-4 border rounded"></textarea>
+          </div>
+          <div class="w-full px-4 mb-4">
+            <button type="submit" class="btn-primary py-2 px-6 rounded-full text-lg hover:bg-green-600 transition">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8 text-center">
+    <div class="container mx-auto">
+      <p>&copy; 2023 Logistics SaaS. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
